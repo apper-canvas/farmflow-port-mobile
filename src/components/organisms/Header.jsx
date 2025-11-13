@@ -1,15 +1,23 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import ApperIcon from "@/components/ApperIcon";
+import { useAuth } from "@/layouts/Root";
 import { cn } from "@/utils/cn";
+import ApperIcon from "@/components/ApperIcon";
+import Button from "@/components/atoms/Button";
 
-const Header = () => {
+const Header = ({ 
+  showNotifications, 
+  setShowNotifications, 
+  showSettings, 
+  setShowSettings, 
+  unreadCount 
+}) => {
+const { user, logout } = useAuth();
   const location = useLocation();
-  const [showNotifications, setShowNotifications] = useState(false);
-  const [showSettings, setShowSettings] = useState(false);
-  const [unreadCount, setUnreadCount] = useState(3); // Example count, replace with actual logic
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const navItems = [
-    { name: "Dashboard", path: "", icon: "LayoutDashboard" },
+    { name: "Dashboard", path: "", icon: "BarChart3" },
     { name: "Farms", path: "farms", icon: "TreePine" },
     { name: "Crops", path: "crops", icon: "Wheat" },
     { name: "Tasks", path: "tasks", icon: "CheckSquare" },
