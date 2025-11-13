@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import DashboardStats from "@/components/organisms/DashboardStats";
 import UpcomingTasks from "@/components/organisms/UpcomingTasks";
 import WeatherWidget from "@/components/organisms/WeatherWidget";
 import ApperIcon from "@/components/ApperIcon";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   return (
     <div className="space-y-8">
       {/* Welcome Section */}
@@ -55,7 +57,10 @@ const Dashboard = () => {
             </h3>
             
             <div className="space-y-3">
-              <button className="w-full flex items-center justify-between p-3 text-left bg-gradient-to-r from-primary/5 to-primary/10 hover:from-primary/10 hover:to-primary/15 rounded-lg transition-all duration-200 hover:scale-[1.02]">
+<button 
+                onClick={() => navigate('/tasks')}
+                className="w-full flex items-center justify-between p-3 text-left bg-gradient-to-r from-primary/5 to-primary/10 hover:from-primary/10 hover:to-primary/15 rounded-lg transition-all duration-200 hover:scale-[1.02]"
+              >
                 <div className="flex items-center">
                   <ApperIcon name="Plus" size={16} className="mr-3 text-primary" />
                   <span className="font-medium text-gray-900">Add New Task</span>
@@ -63,7 +68,10 @@ const Dashboard = () => {
                 <ApperIcon name="ChevronRight" size={16} className="text-gray-400" />
               </button>
               
-              <button className="w-full flex items-center justify-between p-3 text-left bg-gradient-to-r from-secondary/5 to-secondary/10 hover:from-secondary/10 hover:to-secondary/15 rounded-lg transition-all duration-200 hover:scale-[1.02]">
+<button 
+                onClick={() => navigate('/finances')}
+                className="w-full flex items-center justify-between p-3 text-left bg-gradient-to-r from-secondary/5 to-secondary/10 hover:from-secondary/10 hover:to-secondary/15 rounded-lg transition-all duration-200 hover:scale-[1.02]"
+              >
                 <div className="flex items-center">
                   <ApperIcon name="DollarSign" size={16} className="mr-3 text-secondary" />
                   <span className="font-medium text-gray-900">Log Expense</span>
@@ -71,7 +79,10 @@ const Dashboard = () => {
                 <ApperIcon name="ChevronRight" size={16} className="text-gray-400" />
               </button>
               
-              <button className="w-full flex items-center justify-between p-3 text-left bg-gradient-to-r from-accent/5 to-accent/10 hover:from-accent/10 hover:to-accent/15 rounded-lg transition-all duration-200 hover:scale-[1.02]">
+<button 
+                onClick={() => navigate('/crops')}
+                className="w-full flex items-center justify-between p-3 text-left bg-gradient-to-r from-accent/5 to-accent/10 hover:from-accent/10 hover:to-accent/15 rounded-lg transition-all duration-200 hover:scale-[1.02]"
+              >
                 <div className="flex items-center">
                   <ApperIcon name="Wheat" size={16} className="mr-3 text-accent" />
                   <span className="font-medium text-gray-900">Add Crop</span>
